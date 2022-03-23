@@ -1,4 +1,4 @@
-package br.com.ADev.useCase.utils;
+package br.com.ADev.utils;
 
 public abstract class Util {
 	public static boolean isNull(Object param) {

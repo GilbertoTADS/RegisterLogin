@@ -1,7 +1,8 @@
 package br.com.ADev.useCase.validations;
 
 import br.com.ADev.entity.User;
-import br.com.ADev.useCase.utils.DateUtil;
+import br.com.ADev.repository.Validator;
+import br.com.ADev.utils.DateUtil;
 
 public class BirthDateUserValidator implements Validator<User> {
 

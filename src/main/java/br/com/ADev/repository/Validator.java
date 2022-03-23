@@ -1,4 +1,4 @@
-package br.com.ADev.useCase.validations;
+package br.com.ADev.repository;
 
 public interface Validator<T> {
 	

@@ -3,6 +3,7 @@ package br.com.ADev.useCase.validations;
 import java.util.ArrayList;
 
 import br.com.ADev.entity.User;
+import br.com.ADev.repository.Validator;
 
 public class UserValidation implements Validator<User>{
 	private ArrayList<Validator<User>> validator = new ArrayList<Validator<User>>();

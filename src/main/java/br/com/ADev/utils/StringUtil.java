@@ -1,4 +1,4 @@
-package br.com.ADev.useCase.utils;
+package br.com.ADev.utils;
 
 public class StringUtil extends Util{
 	

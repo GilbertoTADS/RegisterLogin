@@ -4,6 +4,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import br.com.ADev.entity.User;
+import br.com.ADev.repository.Validator;
 
 public class EmailUserValidator implements Validator<User>{
 
