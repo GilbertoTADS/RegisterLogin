@@ -3,10 +3,11 @@ package br.com.ADev.repository;
 import java.sql.SQLException;
 
 public interface DAO<T> {
+	
 	/*
-	 * @description : return index that user inserted 
+	 * @description : return true if user inserted with success 
 	 */
-	String create(T param) throws SQLException;
+	boolean create(T param) throws SQLException;
 	/*
 	 * @description : select by attributes
 	 */

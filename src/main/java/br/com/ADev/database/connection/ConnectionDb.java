@@ -4,7 +4,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class ConnectionDb {
+import br.com.ADev.repository.IConnection;
+
+public class ConnectionDb implements IConnection{
 	private static Connection conn;
 	private String address = "jdbc:mysql://localhost:3306";
 	private String user = "root";
@@ -14,6 +16,12 @@ public class ConnectionDb {
 		ConnectionDb.conn = DriverManager.getConnection(
 				address,user,password);
 	}
+	/**
+	 * 
+	 * {@inheritDoc}
+	 * 
+	 */
+
 	public static Connection getInstance() throws SQLException {
 		if(ConnectionDb.conn == null) {
 			new ConnectionDb();

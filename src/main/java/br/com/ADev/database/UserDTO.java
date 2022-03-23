@@ -2,7 +2,7 @@ package br.com.ADev.database;
 
 import java.util.Calendar;
 
-public abstract class UserDb {
+public abstract class UserDTO {
 	
 	int id;
 	String im;
