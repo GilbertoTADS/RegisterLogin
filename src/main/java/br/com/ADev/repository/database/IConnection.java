@@ -1,4 +1,4 @@
-package br.com.ADev.repository;
+package br.com.ADev.repository.database;
 
 import java.sql.Connection;
 

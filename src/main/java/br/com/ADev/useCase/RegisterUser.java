@@ -4,7 +4,7 @@ import java.sql.SQLException;
 
 import br.com.ADev.entity.User;
 import br.com.ADev.exceptions.ParamException;
-import br.com.ADev.repository.DAO;
+import br.com.ADev.repository.database.DAO;
 import br.com.ADev.useCase.validations.EmailUserValidator;
 import br.com.ADev.useCase.validations.UserValidation;
 
