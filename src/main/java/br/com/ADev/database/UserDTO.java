@@ -2,27 +2,31 @@ package br.com.ADev.database;
 
 import java.util.Calendar;
 
-public abstract class UserDTO {
+public class UserDTO {
 	
 	int id;
-	String im;
+	String name;
+	private String email;
 	String pass;
 	Calendar birthDate;
 	Calendar create_in;
 	Calendar delete_in;
 	Calendar updated_in;
 	
+	public UserDTO() {
+		
+	}
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getIm() {
-		return im;
+	public String getName() {
+		return name;
 	}
-	public void setIm(String im) {
-		this.im = im;
+	public void setName(String name) {
+		this.name = name;
 	}
 	public String getPass() {
 		return pass;
@@ -53,6 +57,12 @@ public abstract class UserDTO {
 	}
 	public void setUpdated_in(Calendar updated_in) {
 		this.updated_in = updated_in;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	
 	

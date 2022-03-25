@@ -10,6 +10,6 @@ public interface CreateActionDAO<T> {
 	 * {@inheritDoc}
 	 * @throws SQLException 
 	 */
-	boolean create(User user);
+	boolean create(T param);
 	
 }

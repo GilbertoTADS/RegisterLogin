@@ -5,27 +5,27 @@ import br.com.ADev.database.userAction.ReadUser;
 import br.com.ADev.entity.User;
 import br.com.ADev.repository.database.DAO;
 
-public class UserDAO implements DAO<User>{
+public class UserDAO implements DAO<UserDTO>{
 
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	public boolean create(User user) {
+	public boolean create(UserDTO user) {
 		return new CreateUser().create(user);
 	}
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	public User read(User user) {
-		new ReadUser().read(user);
+	public UserDTO read(UserDTO user) {
+		return new ReadUser().read(user);
 	}
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	public boolean update(User user) {
+	public boolean update(UserDTO user) {
 		// TODO Auto-generated method stub
 		return false;
 	}
@@ -33,7 +33,7 @@ public class UserDAO implements DAO<User>{
 	 * {@inheritDoc}
 	 */
 	@Override
-	public boolean delete(User user) {
+	public boolean delete(UserDTO user) {
 		// TODO Auto-generated method stub
 		return false;
 	}
