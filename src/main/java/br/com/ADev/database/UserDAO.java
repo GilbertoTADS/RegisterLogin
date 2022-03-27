@@ -1,8 +1,9 @@
 package br.com.ADev.database;
 
 import br.com.ADev.database.userAction.CreateUser;
+import br.com.ADev.database.userAction.DeleteUser;
 import br.com.ADev.database.userAction.ReadUser;
-import br.com.ADev.entity.User;
+import br.com.ADev.database.userAction.UpdateUser;
 import br.com.ADev.repository.database.DAO;
 
 public class UserDAO implements DAO<UserDTO>{
@@ -25,17 +26,15 @@ public class UserDAO implements DAO<UserDTO>{
 	 * {@inheritDoc}
 	 */
 	@Override
-	public boolean update(UserDTO user) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean update(String email, UserDTO user) {
+		return new UpdateUser().update(email, user);
 	}
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
 	public boolean delete(UserDTO user) {
-		// TODO Auto-generated method stub
-		return false;
+		return new DeleteUser().delete(user);
 	}
 
 }
