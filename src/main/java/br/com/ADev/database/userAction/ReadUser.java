@@ -5,8 +5,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Calendar;
 
-import br.com.ADev.database.UserDTO;
 import br.com.ADev.database.connection.ConnectionDb;
+import br.com.ADev.repository.database.DTO.UserDTO;
 import br.com.ADev.repository.database.daoActions.ReadActionDAO;
 import br.com.ADev.utils.DateSQLUtil;
 import br.com.ADev.utils.Util;

@@ -1,4 +1,4 @@
-package br.com.ADev.database;
+package br.com.ADev.repository.database.DTO;
 
 import java.util.Calendar;
 

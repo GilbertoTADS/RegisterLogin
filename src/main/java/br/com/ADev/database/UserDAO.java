@@ -5,6 +5,7 @@ import br.com.ADev.database.userAction.DeleteUser;
 import br.com.ADev.database.userAction.ReadUser;
 import br.com.ADev.database.userAction.UpdateUser;
 import br.com.ADev.repository.database.DAO;
+import br.com.ADev.repository.database.DTO.UserDTO;
 
 public class UserDAO implements DAO<UserDTO>{
 

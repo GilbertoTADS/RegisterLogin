@@ -3,8 +3,8 @@ package br.com.ADev.database.userAction;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-import br.com.ADev.database.UserDTO;
 import br.com.ADev.database.connection.ConnectionDb;
+import br.com.ADev.repository.database.DTO.UserDTO;
 import br.com.ADev.repository.database.daoActions.CreateActionDAO;
 import br.com.ADev.utils.DateSQLUtil;
 
