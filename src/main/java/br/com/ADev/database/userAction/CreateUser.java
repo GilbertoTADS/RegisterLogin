@@ -15,7 +15,7 @@ public class CreateUser implements CreateActionDAO<UserDTO>{
 	 */
 	@Override
 	public boolean create(UserDTO user) {
-		String sql = "INSERT INTO `USER` (`name`,`email`,`pass`,`birthDate`) VALUES (?,?,?,?)";
+		String sql = "INSERT INTO `USER` (`name`,`email`,`pass`,`birthDate`,created_in) VALUES (?,?,?,?,now())";
 
 		try {
 			PreparedStatement stmt = ConnectionDb.getInstance().prepareStatement(sql);
