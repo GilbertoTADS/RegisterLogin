@@ -17,7 +17,7 @@ public class DateSQLUtil extends Util{
 				Integer.valueOf(dateSQL.substring(8,10)));
 		return date;
 	}
-	/*
+	/**
 	 * @return A Date SQL
 	 */
 	public static Date toDate(Calendar calendar) {

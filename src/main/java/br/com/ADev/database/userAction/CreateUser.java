@@ -5,7 +5,6 @@ import java.sql.SQLException;
 
 import br.com.ADev.database.UserDTO;
 import br.com.ADev.database.connection.ConnectionDb;
-import br.com.ADev.entity.User;
 import br.com.ADev.repository.database.daoActions.CreateActionDAO;
 import br.com.ADev.utils.DateSQLUtil;
 
@@ -16,15 +15,17 @@ public class CreateUser implements CreateActionDAO<UserDTO>{
 	 */
 	@Override
 	public boolean create(UserDTO user) {
-		String sql = "INSERT INTO `USER` (`name`,`pass`,`birthDate`) VALUES (?,?,?)";
+		String sql = "INSERT INTO `USER` (`name`,`email`,`pass`,`birthDate`) VALUES (?,?,?,?)";
 
 		try {
 			PreparedStatement stmt = ConnectionDb.getInstance().prepareStatement(sql);
-			ConnectionDb.getInstance().setAutoCommit(true);
+			
 			stmt.setString(1, user.getName());
-			stmt.setString(2, user.getPass());
-			stmt.setDate(3, DateSQLUtil.toDate(user.getBirthDate()));
-			return stmt.execute();
+			stmt.setString(2, user.getEmail());
+			stmt.setString(3, user.getPass());
+			stmt.setDate(4, DateSQLUtil.toDate(user.getBirthDate()));
+			stmt.execute();
+			return true;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

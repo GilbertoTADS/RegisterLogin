@@ -1,10 +1,9 @@
 package br.com.ADev.repository.database.daoActions;
 
-import java.sql.SQLException;
-
 public interface UpdateActionDAO<T> {
-	/*
-	 * @description : return true if updated with success
+	/**
+	 * @description : return true if updated with success.If some object's value is null then this will are ignore
+	 * @param indentifier to found record,and Objects with new values to update
 	 */
-	boolean update(T param) throws SQLException;
+	boolean update(String identifier,T param);
 }

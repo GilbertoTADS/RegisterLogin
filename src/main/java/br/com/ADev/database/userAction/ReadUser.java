@@ -17,24 +17,26 @@ public class ReadUser implements ReadActionDAO<UserDTO>{
 	 */
 	@Override
 	public UserDTO read(UserDTO user) {
-		StringBuilder sql = new StringBuilder();
-		sql.append("SELECT * FROM `USER` ");
-		sql.append("WHERE  1 = 1 ");
-		
-		if (Util.isNotNull(user.getEmail())) sql.append("AND `email` = ? ");
-		else return null;
+		if (Util.isNull(user.getEmail())) return null;
+		String sql = "SELECT * FROM `USER` WHERE  `deleted_in` IS NULL AND `email` = ? ";
+	
 		
 		try {
-			PreparedStatement stmt = ConnectionDb.getInstance().prepareStatement(sql.toString());
-			stmt.setString(0, user.getEmail());
-			ResultSet result =  stmt.executeQuery(sql.toString());
-			Calendar birthDate = DateSQLUtil.toCalendar(result.getNString("birthDate"));
-			UserDTO userDTO = new UserDTO();
-			userDTO.setName(result.getNString("name"));
-			userDTO.setEmail(result.getNString("email"));
-			userDTO.setPass(result.getNString("pass"));
-			userDTO.setBirthDate(birthDate);
-			return userDTO;
+			PreparedStatement stmt = ConnectionDb.getInstance().prepareStatement(sql);
+			stmt.setString(1, user.getEmail());
+			
+			ResultSet result =  stmt.executeQuery();
+			while(result.next()) {
+				Calendar birthDate = DateSQLUtil.toCalendar(result.getString("birthDate"));
+				UserDTO userDTO = new UserDTO();
+				userDTO.setId(Integer.valueOf(result.getString("id")));
+				userDTO.setName(result.getString("name"));
+				userDTO.setEmail(result.getString("email"));
+				userDTO.setPass(result.getString("pass"));
+				userDTO.setBirthDate(birthDate);
+				return userDTO;
+			}
+			
 				
 		} catch (SQLException e) {
 			e.printStackTrace();
