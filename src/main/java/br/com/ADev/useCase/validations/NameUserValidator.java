@@ -9,6 +9,7 @@ public class NameUserValidator implements Validator<User>{
 	public boolean isValid(User user) {
 		if(StringUtil.isNull(user.getName())) return false;
 		if(StringUtil.isEmpty(user.getName())) return false;
+		if(!StringUtil.isAlpha(user.getName())) return false;
 		return true;
 	}
 }

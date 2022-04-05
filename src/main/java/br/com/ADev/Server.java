@@ -19,7 +19,6 @@ public class Server {
                 + "%sapplication.wadl\nHit enter to stop it...", url));
         System.in.read();
         server.stop();
-		
 	}
 
 }
