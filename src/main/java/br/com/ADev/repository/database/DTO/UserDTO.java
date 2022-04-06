@@ -1,16 +1,22 @@
 package br.com.ADev.repository.database.DTO;
 
+import java.io.Serializable;
 import java.util.Calendar;
 
-public class UserDTO {
+public class UserDTO implements Serializable{
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	
 	int id;
 	String name;
 	private String email;
 	String pass;
 	Calendar birthDate;
-	Calendar create_in;
-	Calendar delete_in;
+	Calendar created_in;
+	Calendar deleted_in;
 	Calendar updated_in;
 	
 	public UserDTO() {
@@ -41,16 +47,16 @@ public class UserDTO {
 		this.birthDate = birthDate;
 	}
 	public Calendar getCreate_in() {
-		return create_in;
+		return created_in;
 	}
 	public void setCreate_in(Calendar create_in) {
-		this.create_in = create_in;
+		this.created_in = create_in;
 	}
 	public Calendar getDelete_in() {
-		return delete_in;
+		return deleted_in;
 	}
 	public void setDelete_in(Calendar delete_in) {
-		this.delete_in = delete_in;
+		this.deleted_in = delete_in;
 	}
 	public Calendar getUpdated_in() {
 		return updated_in;
