@@ -1,39 +1,33 @@
 package br.com.ADev.controller;
 
-import javax.ws.rs.Consumes;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import br.com.ADev.database.UserDAO;
+import br.com.ADev.entity.User;
 import br.com.ADev.exceptions.BusinessRole;
 import br.com.ADev.exceptions.ParamException;
 import br.com.ADev.presenter.ResponseHTTP;
 import br.com.ADev.repository.database.DTO.UserDTO;
 import br.com.ADev.useCase.RegisterUser;
 
-@Path("user")
 public class RegisterUserController {
 	
-	@POST
-	@Produces(MediaType.APPLICATION_JSON)
-	@Consumes(MediaType.APPLICATION_JSON)
-	public ResponseHTTP<UserDTO> create(UserDTO user) {
-		
+	public RegisterUserController() {}
+	
+	
+	public ResponseHTTP<User> register(UserDTO user) {
 		try {
 			
-			new RegisterUser(user,new UserDAO());
-			return new ResponseHTTP<UserDTO>()
+			RegisterUser ru = new RegisterUser(user,new UserDAO());
+			return new ResponseHTTP<User>()
 					.setStatus(Response.Status.CREATED.getStatusCode())
 					.setMessage(Response.Status.CREATED.name())
 					.setError(false)
-					.setTarget(user);
+					.setTarget(ru.getUser());
 			
 		} catch (ParamException | BusinessRole e) {
 			
-			return new ResponseHTTP<UserDTO>()
+			return new ResponseHTTP<User>()
 					.setStatus(Response.Status.BAD_REQUEST.getStatusCode())
 					.setMessage(e.getMessage())
 					.setError(true)

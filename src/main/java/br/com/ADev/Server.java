@@ -9,7 +9,7 @@ import org.glassfish.jersey.server.ResourceConfig;
 
 
 public class Server {
-	private static String url = "http://localhost:8080/dev/";
+	private static String url = "http://localhost:8080/api/v1/";
 	private static String resources = "br.com.ADev.controller";
 	private static HttpServer server;
 	
@@ -26,7 +26,8 @@ public class Server {
 	}
 	
 	private static ResourceConfig configResource() {
-		return new ResourceConfig().packages(resources);
+		ResourceConfig rc = new ResourceConfig().packages(resources);
+		 return rc;
 	}
 	
 	private static HttpServer createServer() {
