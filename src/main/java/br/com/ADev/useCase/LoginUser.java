@@ -11,7 +11,6 @@ import br.com.ADev.repository.database.DTO.UserDTO;
 import br.com.ADev.useCase.validations.EmailUserValidator;
 import br.com.ADev.useCase.validations.PasswordUserValidator;
 import br.com.ADev.useCase.validations.UserValidation;
-import br.com.ADev.utils.Util;
 
 public class LoginUser extends UserUseCase{
 
@@ -28,9 +27,8 @@ public class LoginUser extends UserUseCase{
 	 */
 	@Override
 	public boolean execute() throws BusinessRole {
-		UserDTO userDB = this.userDAO.read(userDTO);
-		
-		return Util.isNull(userDB);
+		boolean exists =  this.exists();
+		return exists;
 	}
 	/**
 	 * 
@@ -41,9 +39,9 @@ public class LoginUser extends UserUseCase{
 		ArrayList<Validator<User>> validators = new ArrayList<Validator<User>>();
 		validators.add(new EmailUserValidator());
 		validators.add(new PasswordUserValidator());
-		
-		boolean isNotValid = !(new UserValidation(validators).isValid(user));
-		if(isNotValid) throw new ParamException("email and password is required");
-	}
 
+		boolean isNotValid = !(new UserValidation(validators).isValid(this.user));
+		if(isNotValid) throw new ParamException("email and password is required");
+		
+	}
 }

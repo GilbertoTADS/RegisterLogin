@@ -8,7 +8,7 @@ public abstract class Util {
 		return !StringUtil.isNull(param);
 	}
 	public static boolean isEmpty(Object param) {
-		return param == "";
+		return param.equals("");
 	}
 	public static boolean isNotEmpty(Object param) {
 		return !isEmpty(param);

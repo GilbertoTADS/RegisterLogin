@@ -14,6 +14,7 @@ public class EmailUserValidator implements Validator<User>{
 	public boolean isValid(User user) {
 		if(Util.isNull(user)) return false;
 		if(StringUtil.isNull(user.getEmail())) return false;
+		if(StringUtil.isEmpty(user.getEmail())) return false;
 		
 		Pattern pattern = Pattern.compile("[a-z0-9]+@[a-z]+.[a-z]+",Pattern.CASE_INSENSITIVE);
 		Matcher matcher = pattern.matcher(user.getEmail());

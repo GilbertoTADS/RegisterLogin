@@ -10,5 +10,8 @@ public class StringUtil extends Util{
 		boolean result = text.matches("^[a-zA-Z+ ]*$");
 		return result;
 	}
+	public static boolean isEmpty(String param) {
+		return param.equals("");
+	}
 	
 }

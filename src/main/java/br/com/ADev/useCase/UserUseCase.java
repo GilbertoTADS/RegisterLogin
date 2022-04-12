@@ -11,8 +11,9 @@ public abstract class UserUseCase {
 	protected User user;
 	protected UserDTO userDTO;
 	protected DAO<UserDTO> userDAO;
+	private boolean result;
 	/**
-	 * @Description insert a new user on Db while instanciete a user
+	 * @Description insert a new user on DB while instanciate a user
 	 * @param userDTO
 	 * @param userDAO
 	 * @throws ParamException
@@ -28,7 +29,10 @@ public abstract class UserUseCase {
 		this.userDAO = userDAO;
 		
 		this.isValid();
-		this.execute();
+		this.result = this.execute();
+	}
+	public boolean getResult() {
+		return this.result;
 	}
 	/**
 	 * 

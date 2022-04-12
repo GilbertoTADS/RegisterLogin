@@ -1,22 +1,18 @@
-package br.com.ADev.service;
+package br.com.ADev.presenter.service;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.HeaderParam;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
 
 import br.com.ADev.controller.LoginUserController;
 import br.com.ADev.controller.RegisterUserController;
-import br.com.ADev.database.UserDAO;
 import br.com.ADev.entity.User;
-import br.com.ADev.exceptions.BusinessRole;
-import br.com.ADev.exceptions.ParamException;
-import br.com.ADev.presenter.ResponseHTTP;
+import br.com.ADev.presenter.HTTPResponse.ResponseHTTP;
 import br.com.ADev.repository.database.DTO.UserDTO;
-import br.com.ADev.useCase.RegisterUser;
 
 @Path("/user")
 public class UserService {
@@ -35,14 +31,16 @@ public class UserService {
 		return register.register(user);
 	}
 	/**
-	 * @description verify if user is registered
+	 * @description allow user's authentication
 	 * @param userDTO
 	 * @return
 	 */
 	@GET
-	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response login(UserDTO userDTO) {
-		return loger.login(userDTO);
+	public ResponseHTTP<UserDTO> login(
+			@HeaderParam(value = "email") String email,
+			@HeaderParam(value = "password") String password) {
+		
+		return loger.login(email,password); 
 	}
 }
