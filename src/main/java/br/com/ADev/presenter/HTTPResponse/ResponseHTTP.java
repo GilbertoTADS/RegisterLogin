@@ -2,10 +2,7 @@ package br.com.ADev.presenter.HTTPResponse;
 
 import javax.ws.rs.core.Response;
 
-import br.com.ADev.repository.database.DTO.UserDTO;
-
 public class ResponseHTTP<T>{
-
 
 	int status = 0;
 	boolean error = false;
@@ -13,7 +10,6 @@ public class ResponseHTTP<T>{
 	T target;
 	
 	public ResponseHTTP(){}
-	
 	
 	public ResponseHTTP<T> setResponseOk(T target) {
 		return new ResponseHTTP<T>()

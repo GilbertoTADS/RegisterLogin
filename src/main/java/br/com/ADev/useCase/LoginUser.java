@@ -1,5 +1,7 @@
 package br.com.ADev.useCase;
 
+import java.io.UnsupportedEncodingException;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 
 import br.com.ADev.entity.User;
@@ -17,9 +19,11 @@ public class LoginUser extends UserUseCase{
 	/**
 	 * 
 	 * {@inheritDoc}
+	 * @throws UnsupportedEncodingException 
+	 * @throws NoSuchAlgorithmException 
 	 */
 	public LoginUser(UserDTO userDTO, DAO<UserDTO> userDAO) throws ParamException, BusinessRole {
-		super(userDTO, userDAO);
+		super(userDTO, userDAO); 
 	}
 	/**
 	 * 

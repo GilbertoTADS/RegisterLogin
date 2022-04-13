@@ -22,7 +22,7 @@ public class RegisterUserController {
 		} catch (ParamException | BusinessRole p) {
 
 			return new ResponseHTTP<User>().setResponseBadRequest(p.getMessage());
-					
+
 		}
 	}
 }

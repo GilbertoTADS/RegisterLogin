@@ -1,5 +1,8 @@
 package br.com.ADev.useCase;
 
+import java.io.UnsupportedEncodingException;
+import java.security.NoSuchAlgorithmException;
+
 import br.com.ADev.entity.User;
 import br.com.ADev.exceptions.BusinessRole;
 import br.com.ADev.exceptions.ParamException;
@@ -18,6 +21,8 @@ public abstract class UserUseCase {
 	 * @param userDAO
 	 * @throws ParamException
 	 * @throws BusinessRole
+	 * @throws UnsupportedEncodingException 
+	 * @throws NoSuchAlgorithmException 
 	 */
 	public UserUseCase(UserDTO userDTO, DAO<UserDTO> userDAO) throws ParamException, BusinessRole{
 		this.user = new User(
@@ -34,7 +39,7 @@ public abstract class UserUseCase {
 	public boolean getResult() {
 		return this.result;
 	}
-	/**
+	/** 
 	 * 
 	 * @return instance of User
 	 */
@@ -50,6 +55,8 @@ public abstract class UserUseCase {
 	 * @description execute use case
 	 * @throws BusinessRole if same business role for break
 	 * @return true to success and false to same error
+	 * @throws UnsupportedEncodingException 
+	 * @throws NoSuchAlgorithmException 
 	 */
 	public abstract boolean execute() throws BusinessRole;
 	

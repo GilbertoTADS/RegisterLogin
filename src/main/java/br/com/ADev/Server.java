@@ -15,8 +15,7 @@ public class Server {
 	
 	public static void main(String[] args) throws IOException{
 		server =  createServer();
-		System.out.println(String.format("Jersey app started with WADL available at "
-                + "%sapplication.wadl\nHit enter to stop it...", url));
+		System.out.println(String.format("Jersey app started with WADL available at %sapplication.wadl\nHit enter to stop it...", url));
         System.in.read();
         server.stop();
 	}
