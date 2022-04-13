@@ -38,7 +38,7 @@ public class ResponseHTTP<T>{
 	}
 	public ResponseHTTP<T> setResponseForbiden(String string) {
 		return new ResponseHTTP<T>()
-				.setError(false)
+				.setError(true)
 				.setMessage(Response.Status.FORBIDDEN.name())
 				.setStatus(Response.Status.FORBIDDEN.getStatusCode())
 				.setTarget(null);
