@@ -27,6 +27,7 @@ public class Server {
 	
 	private static ResourceConfig configResource() {
 		ResourceConfig rc = new ResourceConfig().packages(resources);
+		rc.register(new CorsFilter());
 		 return rc;
 	}
 	
