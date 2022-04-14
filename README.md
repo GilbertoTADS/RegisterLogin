@@ -5,7 +5,7 @@
     <li>
         <h4>FEATURES</h4>
         <ul>
-            <li>Password encription &#9989;</li>
+            <li>Password encryption &#9989;</li>
             <li> User's login &#9989;</li>
             <li>User's register  &#9989; </li>
             <li>Access control by profile</li>
