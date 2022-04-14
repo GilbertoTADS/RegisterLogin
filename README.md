@@ -5,7 +5,8 @@
     <li>
         <h4>FEATURES</h4>
         <ul>
-            <li> User's login</li>
+            <li>Password encription &#9989;</li>
+            <li> User's login &#9989;</li>
             <li>User's register  &#9989; </li>
             <li>Access control by profile</li>
             <li>Painel adm to include origins API's meeted

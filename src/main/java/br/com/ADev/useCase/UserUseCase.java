@@ -25,6 +25,7 @@ public abstract class UserUseCase {
 	 * @throws NoSuchAlgorithmException 
 	 */
 	public UserUseCase(UserDTO userDTO, DAO<UserDTO> userDAO) throws ParamException, BusinessRole{
+		
 		this.user = new User(
 				userDTO.getName(),
 				userDTO.getEmail(),

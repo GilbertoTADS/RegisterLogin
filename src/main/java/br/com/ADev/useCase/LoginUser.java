@@ -13,6 +13,7 @@ import br.com.ADev.repository.database.DTO.UserDTO;
 import br.com.ADev.useCase.validations.EmailUserValidator;
 import br.com.ADev.useCase.validations.PasswordUserValidator;
 import br.com.ADev.useCase.validations.UserValidation;
+import br.com.ADev.utils.Criptographic;
 
 public class LoginUser extends UserUseCase{
 
@@ -31,6 +32,12 @@ public class LoginUser extends UserUseCase{
 	 */
 	@Override
 	public boolean execute() throws BusinessRole {
+		Criptographic cript = new Criptographic();
+		try {
+			userDTO.setPass(cript.make(userDTO.getPass()));
+		} catch (NoSuchAlgorithmException | UnsupportedEncodingException e) {
+			throw new BusinessRole(e.getMessage());
+		}
 		boolean exists =  this.exists();
 		return exists;
 	}

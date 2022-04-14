@@ -19,7 +19,7 @@ public class LoginUserController {
 			boolean userExists = new LoginUser(userDTO, new UserDAO()).getResult();
 			
 			if(userExists) return new ResponseHTTP<UserDTO>().setResponseOk(userDTO);
-			return new ResponseHTTP<UserDTO>().setResponseForbiden("email or password invalid");
+			return new ResponseHTTP<UserDTO>().setResponseForbidden("email or password invalid");
 		
 		} catch (ParamException | BusinessRole e) {
 			
