@@ -1,9 +1,8 @@
-package br.com.ADev;
+package br.com.ADev.useCase;
 
 import org.junit.jupiter.api.Test;
 
-
-class ServerTest {
+class UserUseCaseTest {
 
 	@Test
 	void test() {

@@ -12,7 +12,7 @@ import br.com.ADev.utils.Util;
 
 public abstract class UserUseCase {
 	protected User user;
-	protected UserDTO userDTO;
+	protected final UserDTO userDTO;
 	protected DAO<UserDTO> userDAO;
 	private boolean result;
 	/**
@@ -62,7 +62,10 @@ public abstract class UserUseCase {
 	public abstract boolean execute() throws BusinessRole;
 	
 	protected boolean exists() {
-		UserDTO userDTODb = this.userDAO.read(userDTO);
+		UserDTO userNew = new UserDTO();
+		userNew.setEmail(this.userDTO.getEmail());
+		
+		UserDTO userDTODb = this.userDAO.read(userNew);
 		
 		return Util.isNotNull(userDTODb);
 	}
