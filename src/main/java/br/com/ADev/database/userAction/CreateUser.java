@@ -27,9 +27,9 @@ public class CreateUser implements CreateActionDAO<UserDTO>{
 			stmt.execute();
 			return true;
 		} catch (SQLException e) {
-			e.printStackTrace();
+			return false;
 		}
-		return false;
+		
 	}
 
 }

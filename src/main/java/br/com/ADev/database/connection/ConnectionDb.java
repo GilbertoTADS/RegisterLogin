@@ -4,17 +4,24 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+import br.com.ADev.exceptions.DatabaseException;
 import br.com.ADev.repository.database.IConnection;
 
 public class ConnectionDb implements IConnection{
 	private static Connection conn;
-	private String address = "jdbc:mysql://localhost:3306/engineering";
-	private String user = "root";
-	private String password = "Eu+foco100";
 	
 	private ConnectionDb() throws SQLException {
-		ConnectionDb.conn = DriverManager.getConnection(
-				address,user,password);
+		try {
+			DataBaseConfig dbConfig = new DataBaseConfig();
+			ConnectionDb.conn = DriverManager.getConnection(
+					dbConfig.getAddress(),
+					dbConfig.getUser(),
+					dbConfig.getPassword());
+			
+		} catch (DatabaseException e) {
+			throw new SQLException(e.getMessage());
+		}
+		
 	}
 	/**
 	 * 
