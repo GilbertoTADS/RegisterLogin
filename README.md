@@ -8,6 +8,7 @@
             <li>Password encryption &#9989;</li>
             <li> User's login &#9989;</li>
             <li>User's register  &#9989; </li>
+            <li>Token validation &#9935; (building...)</li>
             <li>Access control by profile</li>
             <li>Painel adm to include origins API's meeted
         </ol>
